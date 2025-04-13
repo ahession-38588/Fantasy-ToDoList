@@ -149,6 +149,21 @@
       document.getElementById("questLog").style.display = "flex";
     };
 
+    function beginQuest() {
+      const selectedPath = document.getElementById("startPath").value;
+      const body = document.body;
+
+      const backgrounds = {
+        celtic: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Springtime%20Celtic%20Forest%20Compose.png')",
+        norse: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Ghibli%20Norse%20Tundra%20Compose.png')",
+        ocean: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Deep%20Sea%20Serenity%20Simple%20Compose.png')",
+        urban: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Urban%20Ghibli%20Mystery%20Compose.png')",
+        air: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Ghibli%20Sky%20Temple%20Simple%20Compose%20Apr%2013%202025.png')",
+        witch: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Ghibli%20Cliffside%20Cottage%20Compose.png')",
+        forest: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Rainbow%20Rock%20Cave%20Remix.png')",
+        wilder: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Ghibli%20Urban%20Wilderness%20Simple%20Compose.png')"
+      };
+
     window.addQuest = function() {
       const input = document.getElementById("taskInput");
       const text = input.value.trim();
