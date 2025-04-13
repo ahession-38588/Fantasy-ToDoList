@@ -102,21 +102,7 @@ firebase.initializeApp(firebaseConfig);
 console.log("✅ Firebase initialized:", firebase.apps.length > 0);
 
 
-  window.register = function () {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(userCredential => {
-      document.getElementById("authMessage").innerText = "Welcome, adventurer!";
-      document.getElementById("authBox").style.display = "none";
-    })
-    .catch(error => {
-      document.getElementById("authMessage").innerText = error.message;
-    });
-};
-
-window.login = function () {
+  window.login = function () {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
@@ -124,6 +110,22 @@ window.login = function () {
     .then(userCredential => {
       document.getElementById("authMessage").innerText = "Welcome back!";
       document.getElementById("authBox").style.display = "none";
+      document.getElementById("startScreen").style.display = "flex";
+    })
+    .catch(error => {
+      document.getElementById("authMessage").innerText = error.message;
+    });
+};
+
+window.register = function () {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      document.getElementById("authMessage").innerText = "Welcome, adventurer!";
+      document.getElementById("authBox").style.display = "none";
+      document.getElementById("startScreen").style.display = "flex";
     })
     .catch(error => {
       document.getElementById("authMessage").innerText = error.message;
