@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fantasy To-Do List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Uncial Antiqua', cursive;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://raw.githubusercontent.com/ahession-38588/Fantasy-ToDoList/main/Ghibli%20Style%20Aurora%20Village%20Remix.png') center/cover no-repeat;
+      color: #3c2f1c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .visible {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .box {
+      background: rgba(249, 244, 234, 0.95);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 450px;
+      border: 5px double #6e4e2e;
+      z-index: 2;
+      text-align: center;
+    }
+    input[type="text"], select {
+      width: 100%;
+      padding: 0.6rem;
+      margin: 1rem 0;
+      border: 2px solid #9c8b6f;
+      border-radius: 0.5rem;
+      font-family: inherit;
+      background-color: #fffefc;
+    }
+    button {
+      background-color: #3c2f1c;
+      color: #fffefc;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-family: 'Uncial Antiqua', cursive;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+    .northern-lights {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at top, rgba(144,238,144,0.2), transparent), radial-gradient(ellipse at bottom, rgba(173,216,230,0.2), transparent);
+      animation: pulse 5s infinite alternate;
+      z-index: 0;
+    }
+    @keyframes pulse {
+      0% {opacity: 0.6;}
+      100% {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <div class="northern-lights"></div>
+  <div id="hamburgerMenu" style="position: absolute; top: 1rem; left: 1rem; z-index: 3;">
+    <button onclick="toggleMenu()" style="background: none; border: none; font-size: 2rem; color: #fffefc; cursor: pointer;">☰</button>
+    <div id="menuDropdown" style="display: none; background: linear-gradient(#f9f4ea, #e4d8c3); border: 2px double #6e4e2e; border-radius: 1rem; padding: 0.75rem; margin-top: 0.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-family: 'Uncial Antiqua', cursive; color: #3c2f1c; text-align: left; min-width: 120px;">
+      <button onclick="goHome()" style="background-color: #6e4e2e; color: #fffef9; border: none; padding: 0.4rem 0.6rem; border-radius: 0.5rem; width: 100%; cursor: pointer; font-family: inherit; font-size: 1rem;">🏠 Home</button>
+    </div>
+  </div>
+
+  <div id="loginScreen" class="box visible">
+    <h2>🔐 Welcome Adventurer</h2>
+    <label for="username">Enter your name to begin:</label>
+    <input type="text" id="username" placeholder="e.g. Elowen the Brave" />
+    <button onclick="loginUser()">✨ Enter Realm ✨</button>
+  </div>
+
+  <div id="startScreen" class="box" style="display:none">
+    <h2>🌟 Choose Your Realm 🌟</h2>
+    <label for="startPath">Select your story path:</label>
+    <select id="startPath">
+      <option value="celtic">Celtic Forest</option>
+      <option value="norse">Norse Tundra</option>
+      <option value="ocean">Deep Sea Archive</option>
+      <option value="urban">Urban Mystery</option>
+      <option value="air">Sky Temple</option>
+      <option value="witch">Coastal Courier</option>
+      <option value="forest">Dragon Grove</option>
+      <option value="wilder">Urban Wilderness</option>
+    </select>
+    <button onclick="beginQuest()">✨ Begin Quest ✨</button>
+  </div>
+
+  <div id="questLog" class="box" style="display:none">
+    <h1>🌲 Your Quest Log 🌲</h1>
+    <input type="text" id="taskInput" placeholder="Add a new quest..." />
+    <button onclick="addQuest()">➕ Add Quest</button>
+    <ul id="taskList"></ul>
+    <div id="story" class="story"></div>
+  </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function toggleMenu() {
+      const menu = document.getElementById("menuDropdown");
+      if (menu) {
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+    }
+
+    function loginUser() {
+      const username = document.getElementById("username").value.trim();
+      if (!username) {
+        alert("Please enter your name to begin your adventure.");
+        return;
+      }
+      localStorage.setItem("adventurerName", username);
+      document.getElementById("loginScreen").style.display = "none";
+      document.getElementById("startScreen").style.display = "flex";
+    }
+
+    function goHome() {
+      document.getElementById("loginScreen").style.display = "flex";
+      document.getElementById("startScreen").style.display = "none";
+      document.getElementById("questLog").style.display = "none";
+    }
+
+    window.toggleMenu = toggleMenu;
+    window.loginUser = loginUser;
+    window.goHome = goHome;
+    window.beginQuest = function() {
+      document.getElementById("startScreen").style.display = "none";
+      document.getElementById("questLog").style.display = "flex";
+    };
+
+    window.addQuest = function() {
+      const input = document.getElementById("taskInput");
+      const text = input.value.trim();
+      if (text === "") {
+        alert("Please enter a quest!");
+        return;
+      }
+      const li = document.createElement("li");
+      li.textContent = text;
+      document.getElementById("taskList").appendChild(li);
+      input.value = "";
+    };
+  });
+</script>
+</body>
+</html>
