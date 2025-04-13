@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Fantasy To-Do List&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Uncial Antiqua', cursive;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://raw.githubusercontent.com/ahession-38588/Fantasy-ToDoList/main/Ghibli%20Style%20Aurora%20Village%20Remix.png') center/cover no-repeat;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #3c2f1c;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.visible {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.box {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(249, 244, 234, 0.95);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 6px 20px rgba(0,0,0,0.5);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 90%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 450px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 5px double #6e4e2e;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input[type="text"], select {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.6rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 1rem 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid #9c8b6f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #fffefc;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #3c2f1c;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #fffefc;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0.6rem 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Uncial Antiqua', cursive;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.1rem;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: all 0.3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.northern-lights {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: radial-gradient(ellipse at top, rgba(144,238,144,0.2), transparent), radial-gradient(ellipse at bottom, rgba(173,216,230,0.2), transparent);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>animation: pulse 5s infinite alternate;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>z-index: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@keyframes pulse {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>0% {opacity: 0.6;}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>100% {opacity: 1;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="northern-lights"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="hamburgerMenu" style="position: absolute; top: 1rem; left: 1rem; z-index: 3;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="toggleMenu()" style="background: none; border: none; font-size: 2rem; color: #fffefc; cursor: pointer;"&gt;☰&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="menuDropdown" style="display: none; background: linear-gradient(#f9f4ea, #e4d8c3); border: 2px double #6e4e2e; border-radius: 1rem; padding: 0.75rem; margin-top: 0.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-family: 'Uncial Antiqua', cursive; color: #3c2f1c; text-align: left; min-width: 120px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="goHome()" style="background-color: #6e4e2e; color: #fffef9; border: none; padding: 0.4rem 0.6rem; border-radius: 0.5rem; width: 100%; cursor: pointer; font-family: inherit; font-size: 1rem;"&gt;🏠 Home&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="loginScreen" class="box visible"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;🔐 Welcome Adventurer&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="username"&gt;Enter your name to begin:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="username" placeholder="e.g. Elowen the Brave" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="loginUser()"&gt;✨ Enter Realm ✨&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="startScreen" class="box" style="display:none"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;🌟 Choose Your Realm 🌟&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label for="startPath"&gt;Select your story path:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;select id="startPath"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value="celtic"&gt;Celtic Forest&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value="norse"&gt;Norse Tundra&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value="ocean"&gt;Deep Sea Archive&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value="urban"&gt;Urban Mystery&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value="air"&gt;Sky Temple&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value="witch"&gt;Coastal Courier&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value="forest"&gt;Dragon Grove&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value="wilder"&gt;Urban Wilderness&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="beginQuest()"&gt;✨ Begin Quest ✨&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="questLog" class="box" style="display:none"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;🌲 Your Quest Log 🌲&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="taskInput" placeholder="Add a new quest..." /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="addQuest()"&gt;➕ Add Quest&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul id="taskList"&gt;&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="story" class="story"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.addEventListener("DOMContentLoaded", function () {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function toggleMenu() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>console.log("Toggle menu clicked");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const menu = document.getElementById("menuDropdown");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (menu) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>menu.style.display = menu.style.display === "block" ? "none" : "block";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>console.log("Menu display set to:", menu.style.display);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>console.error("menuDropdown not found in DOM");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function loginUser() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const username = document.getElementById("username").value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>console.log("Login attempt with username:", username);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!username) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert("Please enter your name to begin your adventure.");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localStorage.setItem("adventurerName", username);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("loginScreen").style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("startScreen").style.display = "flex";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>console.log("Login successful, startScreen displayed");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function goHome() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>console.log("Returning to home screen");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("loginScreen").style.display = "flex";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("startScreen").style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("questLog").style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.toggleMenu = toggleMenu;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.loginUser = loginUser;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.goHome = goHome;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.beginQuest = function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>console.log("Begin Quest button clicked");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("startScreen").style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("questLog").style.display = "flex";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.addQuest = function() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const input = document.getElementById("taskInput");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const text = input.value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (text === "") {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert("Please enter a quest!");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const li = document.createElement("li");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>li.textContent = text;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("taskList").appendChild(li);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>input.value = "";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
