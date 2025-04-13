@@ -75,6 +75,23 @@
       opacity: 0.7;
     }
   </style>
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
 </head>
 <body>
   <div class="northern-lights"></div>
@@ -136,6 +153,20 @@
         menu.style.display = menu.style.display === "block" ? "none" : "block";
       }
     }
+
+    const db = firebase.firestore();
+
+// Register or log in
+firebase.auth().signInWithEmailAndPassword(email, password)
+  .then(userCredential => {
+    const user = userCredential.user;
+
+    // Save quests
+    db.collection("quests").doc(user.uid).set({
+      active: [...],
+      completed: [...]
+    });
+  });
 
     function loginUser() {
       const username = document.getElementById("username").value.trim();
