@@ -106,13 +106,17 @@
   </div>
   </div>
 
-  <div id="questLog" class="box" style="display:none">
-    <h1>🌲 Your Quest Log 🌲</h1>
+  <div id="questLog" class="box" style="display:none; flex-direction: column; align-items: center;">
+  <h1 style="margin-bottom: 1rem;">🌲 Your Quest Log 🌲</h1>
+
+  <div style="display: flex; flex-direction: column; width: 100%; gap: 1rem;">
     <input type="text" id="taskInput" placeholder="Add a new quest..." />
-    <button onclick="addQuest()">➕ Add Quest</button>
-    <ul id="taskList"></ul>
-    <div id="story" class="story"></div>
+    <button onclick="addQuest()" style="align-self: center;">➕ Add Quest</button>
+    <ul id="taskList" style="list-style: none; padding-left: 0; margin-top: 1rem;"></ul>
+    <div id="story" class="story" style="margin-top: 1rem;"></div>
   </div>
+</div>
+
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
