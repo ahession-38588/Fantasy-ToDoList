@@ -197,9 +197,11 @@
         } else {
           document.getElementById("taskList").appendChild(li);
         }
+        updateStory();
       });
       document.getElementById("taskList").appendChild(li);
       input.value = "";
+      updateStory();
     }
 
     window.addEventListener("DOMContentLoaded", function () {
@@ -213,6 +215,45 @@
   function showTab(tab) {
     document.getElementById("activeTab").style.display = tab === "active" ? "block" : "none";
     document.getElementById("completedTab").style.display = tab === "completed" ? "block" : "none";
+  }
+  function updateStory() {
+    const tasks = document.querySelectorAll("#completedList li");
+    const storyDiv = document.getElementById("story");
+    const completedCount = tasks.length;
+    const selectedPath = document.getElementById("startPath").value;
+    let story = "";
+
+    const storylines = {
+      celtic: [
+        "As you complete your first task, a gentle breeze swirls around you. From the mists emerges a glowing white deer, its eyes wise and knowing...",
+        "The white deer nods solemnly and turns into the forest. You feel compelled to follow, deeper into the heart of the wildwood where secrets slumber.",
+        "Through tangled roots and moonlit groves, you arrive at a forgotten shrine. The symbols etched into stone pulse faintly with ancient magic..."
+      ],
+      witch: [
+        "The sun glints off the waves as the young witch prepares her satchel of healing salves.",
+        "Her broom lifts shakily into the wind, soaring past seabirds and cliffside villages.",
+        "She delivers her final potion to a child by the shore. Magic and kindness ripple outward with every delivery."
+      ],
+      urban: [
+        "A lost wallet glints under a city lamplight. A choice lies ahead.",
+        "Each returned item brings new connections — strangers becoming friends, secrets unfolding.",
+        "You reach the apartment door. Behind it, a story of memory, mystery, and a long-lost bond."
+      ]
+    };
+
+    const pathStory = storylines[selectedPath] || storylines["celtic"];
+
+    if (completedCount >= 5) {
+      story = pathStory[2];
+    } else if (completedCount >= 3) {
+      story = pathStory[1];
+    } else if (completedCount >= 1) {
+      story = pathStory[0];
+    } else {
+      story = "";
+    }
+
+    storyDiv.innerText = story;
   }
 </script>
 </body>
