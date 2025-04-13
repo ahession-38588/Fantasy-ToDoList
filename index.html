@@ -88,27 +88,24 @@
     <button onclick="loginUser()">✨ Enter Realm ✨</button>
   </div>
 
-  <div id="startScreen" class="box" style="display:none">
-  <h2>🌟 Choose Your Realm 🌟</h2>
-
-  <p style="margin-bottom: 1rem;">Every path begins with a step...</p>
-
-  <label for="startPath" style="display: block; margin-bottom: 0.5rem;">Select your story path:</label>
-
-  <select id="startPath" style="margin-bottom: 1rem;">
-    <option value="celtic">🌲 Celtic Forest</option>
-    <option value="norse">❄️ Norse Tundra</option>
-    <option value="ocean">🌊 Deep Sea Archive</option>
-    <option value="urban">🌆 Urban Mystery</option>
-    <option value="air">⛅ Sky Temple</option>
-    <option value="witch">🧹 Coastal Courier</option>
-    <option value="forest">🐉 Dragon Grove</option>
-    <option value="wilder">🌿 Urban Wilderness</option>
-  </select>
-
-  <button onclick="beginQuest()">✨ Begin Quest ✨</button>
-</div>
-
+  <div id="startScreen" class="box" style="display:none; flex-direction: column; align-items: center;">
+  <h2 style="width: 100%; text-align: center;">🌟 Choose Your Realm 🌟</h2>
+  <p style="width: 100%; text-align: center; margin-bottom: 1rem;">Every path begins with a step...</p>
+  <label for="startPath" style="width: 100%; text-align: center; margin-bottom: 0.5rem;">Select your story path:</label>
+  <div style="width: 100%; display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
+    <select id="startPath" style="width: 100%; max-width: 300px;">
+      <option value="celtic">🌲 Celtic Forest</option>
+      <option value="norse">❄️ Norse Tundra</option>
+      <option value="ocean">🌊 Deep Sea Archive</option>
+      <option value="urban">🌆 Urban Mystery</option>
+      <option value="air">⛅ Sky Temple</option>
+      <option value="witch">🧹 Coastal Courier</option>
+      <option value="forest">🐉 Dragon Grove</option>
+      <option value="wilder">🌿 Urban Wilderness</option>
+    </select>
+    <button onclick="beginQuest()">✨ Begin Quest ✨</button>
+  </div>
+  </div>
 
   <div id="questLog" class="box" style="display:none">
     <h1>🌲 Your Quest Log 🌲</h1>
