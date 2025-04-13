@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,29 +141,32 @@
     }
 
     function beginQuest() {
-    const selectedPath = document.getElementById("startPath").value;
-    const body = document.body;
+      const selectedPath = document.getElementById("startPath").value;
+      const body = document.body;
 
-    const backgrounds = {
-    celtic: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Springtime%20Celtic%20Forest%20Compose.png')",
-    norse: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Ghibli%20Norse%20Tundra%20Compose.png')",
-    ocean: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Deep%20Sea%20Serenity%20Simple%20Compose.png')",
-    urban: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Urban%20Ghibli%20Mystery%20Compose.png')",
-    air: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Ghibli%20Sky%20Temple%20Simple%20Compose%20Apr%2013%202025.png')",
-    witch: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Ghibli%20Cliffside%20Cottage%20Compose.png')",
-    forest: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Rainbow%20Rock%20Cave%20Remix.png')",
-    wilder: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Ghibli%20Urban%20Wilderness%20Simple%20Compose.png')"
-    };
+      const backgrounds = {
+        celtic: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Springtime%20Celtic%20Forest%20Compose.png')",
+        norse: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Ghibli%20Norse%20Tundra%20Compose.png')",
+        ocean: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Deep%20Sea%20Serenity%20Simple%20Compose.png')",
+        urban: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Urban%20Ghibli%20Mystery%20Compose.png')",
+        air: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Ghibli%20Sky%20Temple%20Simple%20Compose%20Apr%2013%202025.png')",
+        witch: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Ghibli%20Cliffside%20Cottage%20Compose.png')",
+        forest: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Rainbow%20Rock%20Cave%20Remix.png')",
+        wilder: "url('https://github.com/ahession-38588/Fantasy-ToDoList/raw/main/Ghibli%20Urban%20Wilderness%20Simple%20Compose.png')"
+      };
 
-    window.toggleMenu = toggleMenu;
-    window.loginUser = loginUser;
-    window.goHome = goHome;
-    window.beginQuest = beginQuest;
-    };
+      const bg = backgrounds[selectedPath] || backgrounds["celtic"];
 
- 
+      body.style.background = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), ${bg}`;
+      body.style.backgroundSize = "cover";
+      body.style.backgroundPosition = "center";
+      body.style.backgroundRepeat = "no-repeat";
 
-    window.addQuest = function() {
+      document.getElementById("startScreen").style.display = "none";
+      document.getElementById("questLog").style.display = "flex";
+    }
+
+    function addQuest() {
       const input = document.getElementById("taskInput");
       const text = input.value.trim();
       if (text === "") {
@@ -175,7 +177,15 @@
       li.textContent = text;
       document.getElementById("taskList").appendChild(li);
       input.value = "";
-    };
+    }
+
+    window.addEventListener("DOMContentLoaded", function () {
+      window.toggleMenu = toggleMenu;
+      window.loginUser = loginUser;
+      window.goHome = goHome;
+      window.beginQuest = beginQuest;
+      window.addQuest = addQuest;
+    });
   });
 </script>
 </body>
