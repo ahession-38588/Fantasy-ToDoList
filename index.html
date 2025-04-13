@@ -89,20 +89,26 @@
   </div>
 
   <div id="startScreen" class="box" style="display:none">
-    <h2>🌟 Choose Your Realm 🌟</h2>
-    <label for="startPath">Select your story path:</label>
-    <select id="startPath">
-      <option value="celtic">Celtic Forest</option>
-      <option value="norse">Norse Tundra</option>
-      <option value="ocean">Deep Sea Archive</option>
-      <option value="urban">Urban Mystery</option>
-      <option value="air">Sky Temple</option>
-      <option value="witch">Coastal Courier</option>
-      <option value="forest">Dragon Grove</option>
-      <option value="wilder">Urban Wilderness</option>
-    </select>
-    <button onclick="beginQuest()">✨ Begin Quest ✨</button>
-  </div>
+  <h2>🌟 Choose Your Realm 🌟</h2>
+
+  <p style="margin-bottom: 1rem;">Every path begins with a step...</p>
+
+  <label for="startPath" style="display: block; margin-bottom: 0.5rem;">Select your story path:</label>
+
+  <select id="startPath" style="margin-bottom: 1rem;">
+    <option value="celtic">🌲 Celtic Forest</option>
+    <option value="norse">❄️ Norse Tundra</option>
+    <option value="ocean">🌊 Deep Sea Archive</option>
+    <option value="urban">🌆 Urban Mystery</option>
+    <option value="air">⛅ Sky Temple</option>
+    <option value="witch">🧹 Coastal Courier</option>
+    <option value="forest">🐉 Dragon Grove</option>
+    <option value="wilder">🌿 Urban Wilderness</option>
+  </select>
+
+  <button onclick="beginQuest()">✨ Begin Quest ✨</button>
+</div>
+
 
   <div id="questLog" class="box" style="display:none">
     <h1>🌲 Your Quest Log 🌲</h1>
